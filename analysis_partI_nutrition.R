@@ -33,3 +33,8 @@ table(meta_gamb_ext$stunting, meta_gamb_ext$stunting3) # first argument = rows, 
 
 # Effect of supplementation on wasting
 table(meta_gamb_ext$wasting, meta_gamb_ext$wasting3)
+
+meta_gamb_ext$wasting_recover<-ifelse(meta_gamb_ext$wasting=="2"&meta_gamb_ext$wasting3=="0", "rec", "non_rec")
+table(meta_gamb_ext$wasting_recover, meta_gamb_ext$trt_grp)
+chisq.test(table(meta_gamb_ext$wasting_recover, meta_gamb_ext$trt_grp))
+# over the 6-week period, 9 children recovered from severe wasting, 3 of them received supplementation, the other 6 did not. There was no association between recovery from wasting and supplementation
